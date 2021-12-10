@@ -25,17 +25,20 @@ import com.squareup.picasso.Picasso
 
 
                 // Get Count - 1 from viewmodel to go to previous dog image
-
+                //.getAllDogs was my main error
                 viewModel.getAllDogs().observe(this) {
                           val count = it.size
                     val imageView = findViewById<ImageView>(R.id.imageView2)
                             Picasso.with(this).load(it[count-1].imageUrl).into(imageView)
                 }
+
+                           //finish takes us back to home screen
                             val button: ImageButton = findViewById(R.id.backButton)
                             button.setOnClickListener {
                                 finish()
                             }
-            }}
+            }
+        }
 
 //Picasso.with(this).load(it.get(0).imageUrl).into(imageView)
 

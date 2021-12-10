@@ -13,29 +13,31 @@ import com.example.offdogapi.viewmodels.MainViewModelFactory
 import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
-    private val viewModel: MainViewModel by viewModels{
-        MainViewModelFactory((application as DogApplication).database.dogImageDao())
-    }
+
+
+
+        //Access to our database instance
+    private val viewModel: MainViewModel by viewModels {
+            MainViewModelFactory((application as DogApplication).database.dogImageDao())
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ADD NEXT AND PREVIOUS BUTTON
 
-        //viewModel.getNewDog()
-       val changeDogButton: ImageButton = findViewById(R.id.nextBtn)
+        // ADD NEXT AND PREVIOUS BUTTON
+        val changeDogButton: ImageButton = findViewById(R.id.nextBtn)
         val prevDogButton: ImageButton = findViewById(R.id.prevBtn)
 
 
-
-        //DISPLAYS IN IMAGE VIEW1 FROM API
+        //DISPLAYS IN IMAGE VIEW1 FROM API when we open our app
         viewModel.currentlyDisplayedImage.observe(this,
             {
                 val mainImage : ImageView = findViewById(R.id.imageView1)
                 Picasso.with(this).load(it.imgSrcUrl).into(mainImage)
             })
-
 
         //BUTTON SHOULD DISPLAY THE NEXT DOG
         changeDogButton.setOnClickListener {
@@ -46,9 +48,10 @@ class MainActivity : AppCompatActivity() {
             //viewModel.addDog()
             if(newDogImage != null ) {
                 viewModel.addDog(newDogImage)
-        }
+            }
         }
 
+        //takes us to mainactivity2 class
         prevDogButton.setOnClickListener {
             openActivity2()
 

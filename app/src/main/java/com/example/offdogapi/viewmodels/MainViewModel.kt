@@ -13,11 +13,12 @@ class MainViewModel(private val dogImageDao: DogImageDao) : ViewModel() {
     private val _currentlyDisplayedImage = MutableLiveData<DogImage>()
     val currentlyDisplayedImage: LiveData<DogImage> = _currentlyDisplayedImage
 
+    //Gets new dog
     init {
         getNewDog()
     }
 
-    // Getting the first item in the list from the response.
+    // Getting our random image from the internet
     fun getNewDog() {
         viewModelScope.launch {
             _currentlyDisplayedImage.value = DogImageApi.retrofitService.getRandomDogImage()
@@ -25,12 +26,14 @@ class MainViewModel(private val dogImageDao: DogImageDao) : ViewModel() {
 
     }
 
+    //using coroutine launch to pass entity to database
     fun addDog(dogImageEntity: DogImageEntity) {
         viewModelScope.launch {
             dogImageDao.addDogImage(dogImageEntity)
         }
     }
 
+    //Gets all dog images, returns flow list of dogs as live data
     fun getAllDogs(): LiveData<List<DogImageEntity>> {
         return dogImageDao.getAllDogImages().asLiveData()
     }
@@ -42,6 +45,7 @@ class MainViewModel(private val dogImageDao: DogImageDao) : ViewModel() {
         }
     }*/
 
+//convert dogimagedao so we can access our database
 class MainViewModelFactory(
     private val dogImageDao: DogImageDao
     ) : ViewModelProvider.Factory {
