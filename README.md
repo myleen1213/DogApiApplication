@@ -24,14 +24,16 @@ If you want to start from scratch here is the Api I used!
 
 (https://dog.ceo/dog-api/documentation/random)
 
-# Screenshot of Doglovers
-
-![Pixel 7 Pro Mockup (12)](https://user-images.githubusercontent.com/55561581/205177600-85ab7b7b-9e6a-48aa-99ec-0d8b4f043def.png)
-
-# Screenshot on what to expect for the code setup if you clone
-
-* I try my absolute best to stay organized in my files, so my code is seperated in 3 main folders Database, Network and My viewmodel.
+# Doglovers Demo
 
 
-![Untitled design](https://user-images.githubusercontent.com/55561581/205180721-283f06f6-575e-496a-a702-f6c3231422fa.png)
+https://user-images.githubusercontent.com/55561581/205206007-948f0777-c0bd-40ee-ac7c-cbb55519b1a2.mp4
+
+
+
+
+
+
+
+
 
